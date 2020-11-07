@@ -28,7 +28,7 @@ for i = 1:np
     try
         nearP = findNearP_sp(nearPsp, i); 
     catch
-        figure(10)
+        figure(20)
         trimesh(faces_Mutual, vertices_Mutual(:,1), vertices_Mutual(:,2), vertices_Mutual(:,3));
         axis equal; hold on
         plot3(vertices(i,1),vertices(i,2),vertices(i,3),'r*');

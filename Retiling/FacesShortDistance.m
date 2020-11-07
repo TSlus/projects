@@ -1,4 +1,5 @@
-% 对于每个面，记下与之距离短于dis的面，默认包含邻域三个面
+% compute the faces whic are less than dis to the face.
+% the nearby 3 faces are choosed defaultly
 function [FSD, num_FSD] = FacesShortDistance(v, f, dis, hedge_face)
 if nargin < 3
     nf = size(f,1);
@@ -23,6 +24,10 @@ num_FSD(nf) = 0;
 % 计算每对面之间的距离
 % 每个面的重心
 vceng = (v(f(:,1),:) + v(f(:,2),:) + v(f(:,3),:)) / 3;
+
+% 面与面之间的距离，只需要计算部分点
+% 这部分先不改
+
 for i = 1:nf
     a = f(i,1); b = f(i,2); c = f(i,3); 
     idxNot = [full(hedge_face(b,a)); full(hedge_face(c,b)); full(hedge_face(a,c)); i];

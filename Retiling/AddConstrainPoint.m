@@ -8,6 +8,8 @@ FV.faces = faces;
 abs_Cmean = abs(Cmean);
 abs_Cgaussian = abs(Cgaussian);
 
-[~, CSP_idx] = maxk(abs_Cmean, k_level);
-CSP_idx = sort(CSP_idx);
+[~, CSP_idx1] = maxk(abs_Cmean, ceil(k_level/2));
+[~, CSP_idx2] = maxk(abs_Cgaussian, ceil(k_level/2));
+
+CSP_idx = sort(unique([CSP_idx1; CSP_idx2]));
 end
